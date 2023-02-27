@@ -1,5 +1,7 @@
 package br.com.daitiks
 
+import br.com.daitiks.exceptions.ExceptionResponse
+import br.com.daitiks.exceptions.UnsorpportedMathOperationException
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -16,7 +18,8 @@ class MathController {
         @PathVariable(value = "numberTwo") numberTwo: String?
     ):
             Double {
-        if (!isNumeric(numberOne) || !isNumeric(numberTwo)) throw Exception()
+        if (!isNumeric(numberOne) || !isNumeric(numberTwo))
+            throw UnsorpportedMathOperationException("Please, set a numeric value! ")
         return convertToDouble(numberOne) + convertToDouble(numberTwo)
     }
 
