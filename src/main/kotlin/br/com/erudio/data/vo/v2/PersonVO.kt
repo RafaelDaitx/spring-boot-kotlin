@@ -1,6 +1,4 @@
-package br.com.erudio.data.vo.v2
-
-import java.util.Date
+package br.com.erudio.data.vo.v1
 
 data class PersonVO (
 
@@ -8,6 +6,5 @@ data class PersonVO (
     var firstName: String = "",
     var lastName: String = "",
     var address: String = "",
-    var gender: String = "",
-    var birthday: Date? = null
+    var gender: String = ""
 )
