@@ -5,4 +5,7 @@ import org.springframework.web.bind.annotation.ResponseStatus
 import java.lang.*
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
-class ResourceNotFoundException(exception: String?): RuntimeException(exception)
+class RequiredObjectIsNullException: RuntimeException{
+    constructor(): super("It's not allowed to persist a null object!")
+    constructor(exception: String?): super(exception)
+}
