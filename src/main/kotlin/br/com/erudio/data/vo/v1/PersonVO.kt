@@ -1,7 +1,9 @@
 package br.com.erudio.data.vo.v2
 
+import br.com.erudio.data.vo.v1.PersonVO
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonPropertyOrder
+import org.hibernate.metamodel.RepresentationMode
 import java.util.Date
 
 @JsonPropertyOrder("id", "address", "firstname", "lastname", "gender")
