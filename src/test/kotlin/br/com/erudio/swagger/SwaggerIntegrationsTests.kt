@@ -1,4 +1,4 @@
-package br.com.erudio
+package br.com.erudio.swagger
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
