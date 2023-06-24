@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import br.com.erudio.data.vo.v2.PersonVO as PersonVOV2
-
+//@CrossOrigin() -> Pode ser feito assim
 @RestController
 @RequestMapping("/api/person/v1")
 @Tag(name = "People", description = "Endpoints for Managing People")
@@ -25,7 +25,7 @@ class PersonController {
     private lateinit var service: PersonService
     // var service: PersonService = PersonService()
 
-
+    @CrossOrigin(origins = ["http://localhost:8080"])
     @GetMapping(produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YAML])
     @Operation(summary = "Find all People", description = "Find all people Description",
             tags = ["People"],
@@ -61,6 +61,7 @@ class PersonController {
         return service.findAll()
     }
 
+    @CrossOrigin(origins = ["http://localhost:8080"])
     @GetMapping(value = ["/{id}"],
         produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YAML])
     @Operation(summary = "Finds a person", description = "Finds a Person Description",
@@ -122,6 +123,7 @@ class PersonController {
                 ),
             ])
 
+    @CrossOrigin(origins = ["http://localhost:8080", "https://erudio.con.br"])
     fun create(@RequestBody person: PersonVO): PersonVO {
         return service.create(person)
 
